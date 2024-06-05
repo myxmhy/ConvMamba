@@ -1,0 +1,12 @@
+deepspeed
+easydict
+fvcore
+matplotlib
+numpy
+rich
+scikit_learn
+scipy
+skimage
+timm
+torch
+tqdm
