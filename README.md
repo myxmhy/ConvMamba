@@ -23,3 +23,21 @@
 
 </details>
 
+
+## Overall methodology and relevant experiments and discussions
+
+<p align="center" width="100%">
+<img src=".\fig\Overall_method.jpg" width="70%" />
+</p>
+
+## Matrices B and C in traditional SSM and selective SSM
+
+<p align="center" width="100%">
+<img src=".\fig\SSM.jpg" width="70%" />
+</p>
+
+## Structure of Mamba block
+
+<p align="center" width="100%">
+<img src=".\fig\Mamba_Block.jpg" width="70%" />
+</p>
