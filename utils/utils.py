@@ -181,21 +181,24 @@ def load_from_hdf5(filename, parts=8):
     with h5py.File(filename, 'r') as f:
         dataset_size = f['dataset'].shape[0]
         chunk_size = dataset_size // parts
+        data_shape = f['dataset'].shape
 
     ranges = [(i * chunk_size, (i + 1) * chunk_size) for i in range(parts)]
     ranges[-1] = (ranges[-1][0], dataset_size)
 
-    results = [None] * parts
+    data = np.zeros(data_shape, dtype=np.float64)
+    
     with concurrent.futures.ProcessPoolExecutor() as executor:
         futures = {executor.submit(load_partial_from_hdf5, filename, start, end): idx for idx, (start, end) in enumerate(ranges)}
         for future in concurrent.futures.as_completed(futures):
             idx = futures[future]
             try:
-                results[idx] = future.result()
+                result = future.result()
+                (start, end) = ranges[idx]
+                data[start:end] = result
             except Exception as e:
                 print(f"Failed to load part of the file: {e}")
     
-    data = np.concatenate(results, axis=0)
     return data
 
 
