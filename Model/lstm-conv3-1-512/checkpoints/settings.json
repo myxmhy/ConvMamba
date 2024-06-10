@@ -19,7 +19,7 @@
     "drop_last": false
   },
   "data_config": {
-    "data_path": "../dataset.npy",
+    "data_path": "../dataset.h5",
     "num_classes": 64,
     "samples_per_class": 600,
     "total_channels": 10,

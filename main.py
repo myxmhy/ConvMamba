@@ -17,7 +17,7 @@ def add_argument():
 
 def main():
     ## model path
-    modelname = "mamba_conv3"
+    modelname = "mamba-conv3"
     dir_path = os.path.dirname(os.path.abspath(__file__))
 
     ds_args = add_argument()
