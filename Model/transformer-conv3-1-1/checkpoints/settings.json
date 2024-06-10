@@ -47,7 +47,7 @@
     "final_div_factor": 1e4
   },
   "model_config": {
-    "model": "easytrans",
+    "model": "trans",
     "nhead": 1,
     "num_encoder_layers": 1,
     "num_decoder_layers": 1,

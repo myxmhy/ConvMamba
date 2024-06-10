@@ -10,3 +10,4 @@ skimage
 timm
 torch
 tqdm
+mamba_ssm

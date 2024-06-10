@@ -14,8 +14,8 @@ class Classification(Base_method):
         self.model = self.build_model(args)
 
     def build_model(self, args):
-        if args.model == "easytrans":
-            return easytrans_model(len(args.select_channel),
+        if args.model == "trans":
+            return trans_model(len(args.select_channel),
                 args.num_classes,
                 args.nhead,
                 args.num_encoder_layers,
@@ -24,8 +24,8 @@ class Classification(Base_method):
                 args.num_conv_layer,
                 args.conv_outchannel,
                 args.conv_strid_size).to(self.device)
-        elif args.model == "easymamba":
-            return easymamba_model(len(args.select_channel),
+        elif args.model == "mamba":
+            return mamba_model(len(args.select_channel),
                 args.num_classes,
                 args.mamba_layers,
                 args.d_state,
@@ -34,56 +34,56 @@ class Classification(Base_method):
                 args.num_conv_layer,
                 args.conv_outchannel,
                 args.conv_strid_size).to(self.device)
-        elif args.model == "easypuremamba":
-            return easypuremamba_model(len(args.select_channel),
+        elif args.model == "puremamba":
+            return puremamba_model(len(args.select_channel),
                 args.sequence_length,
                 args.num_classes,
                 args.mamba_layers,
                 args.d_state,
                 args.d_conv,
                 args.expand).to(self.device)
-        elif args.model == "easyMHA":
-            return easyMHA_model(len(args.select_channel),
+        elif args.model == "MHA":
+            return MHA_model(len(args.select_channel),
                 args.num_classes,
                 args.MHA_layers,
                 args.nhead,
                 args.num_conv_layer,
                 args.conv_outchannel,
                 args.conv_strid_size).to(self.device)
-        elif args.model == "easypureMHA":
-            return easypureMHA_model(len(args.select_channel),
+        elif args.model == "pureMHA":
+            return pureMHA_model(len(args.select_channel),
                 args.sequence_length,
                 args.num_classes,
                 args.MHA_layers,
                 args.nhead).to(self.device)
-        elif args.model == "easyGRU":
-            return easyGRU_model(len(args.select_channel),
+        elif args.model == "GRU":
+            return GRU_model(len(args.select_channel),
                 args.num_classes,
                 args.hidden_size,
                 args.num_layers,
                 args.num_conv_layer,
                 args.conv_outchannel,
                 args.conv_strid_size).to(self.device)
-        elif args.model == "easyLSTM":
-            return easyLSTM_model(len(args.select_channel),
+        elif args.model == "LSTM":
+            return LSTM_model(len(args.select_channel),
                 args.num_classes,
                 args.hidden_size,
                 args.num_layers,
                 args.num_conv_layer,
                 args.conv_outchannel,
                 args.conv_strid_size).to(self.device)
-        elif args.model == "easypureGRU":
-            return easypureGRU_model(len(args.select_channel),
+        elif args.model == "pureGRU":
+            return pureGRU_model(len(args.select_channel),
                 args.num_classes,
                 args.hidden_size,
                 args.num_layers).to(self.device)
-        elif args.model == "easypureLSTM":
-            return easypureLSTM_model(len(args.select_channel),
+        elif args.model == "pureLSTM":
+            return pureLSTM_model(len(args.select_channel),
                 args.num_classes,
                 args.hidden_size,
                 args.num_layers).to(self.device)
-        elif args.model == "easypuretrans":
-            return easypuretrans_model(len(args.select_channel),
+        elif args.model == "puretrans":
+            return puretrans_model(len(args.select_channel),
                 args.sequence_length,
                 args.num_classes,
                 args.nhead,

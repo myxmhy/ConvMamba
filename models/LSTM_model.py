@@ -1,13 +1,13 @@
 from torch import nn
 import math
 import numpy as np
-class easyLSTM_model(nn.Module):
+class LSTM_model(nn.Module):
     r"""
-    toooooo~~ easy LSTM......
+    LSTM
     """
     def __init__(self, num_features, num_classes, hidden_size=512, num_layers=2, 
                  num_conv_layer = 6, conv_outchannel=512, conv_strid_size=128):
-        super(easyLSTM_model, self).__init__()
+        super(LSTM_model, self).__init__()
 
         self.enc = Conv_Encoder(num_features, num_conv_layer, conv_outchannel, conv_strid_size)
 

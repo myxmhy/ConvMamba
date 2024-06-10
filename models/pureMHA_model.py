@@ -2,12 +2,12 @@ from torch import nn
 from .layers import MHA, MHAConfig
 
 
-class easypureMHA_model(nn.Module):
+class pureMHA_model(nn.Module):
     r"""
-    toooooo~~ easy pureMHA......
+    pureMHA
     """
     def __init__(self, num_features, squence_length, num_classes, n_layers, nhead=1):
-        super(easypureMHA_model, self).__init__()
+        super(pureMHA_model, self).__init__()
 
 
         config = MHAConfig(d_model=num_features, 

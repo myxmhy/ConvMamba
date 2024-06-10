@@ -47,7 +47,7 @@
     "final_div_factor": 1e4
   },
   "model_config": {
-    "model": "easymamba",
+    "model": "mamba",
     "mamba_layers": 1,
     "d_state": 16,
     "d_conv": 4,

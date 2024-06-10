@@ -30,6 +30,7 @@ See Figure 3 of the paper (page 8) for a visual representation of a MambaBlock.
 
 @dataclass
 class MambaConfig:
+    mamba_type: int = 1
     d_model: int # D
     n_layers: int
     dt_rank: Union[int, str] = 'auto'
@@ -91,8 +92,16 @@ class Mamba(nn.Module):
 class ResidualBlock(nn.Module):
     def __init__(self, config: MambaConfig):
         super().__init__()
+        if config.mamba_type == 1:
+            self.mixer = MambaBlock(config)
+        elif config.mamba_type == 2:
+            from mamba_ssm import Mamba2
+            self.mixer = Mamba2(
+                    d_model=config.d_model, 
+                    d_state=config.d_state,
+                    d_conv=config.d_conv,
+                    expand=config.expand_factor)
 
-        self.mixer = MambaBlock(config)
         self.norm = RMSNorm(config.d_model, config.rms_norm_eps)
         #self.norm = nn.LayerNorm(config.d_model, config.rms_norm_eps)
         self.dropout = nn.Dropout(p=0.0)

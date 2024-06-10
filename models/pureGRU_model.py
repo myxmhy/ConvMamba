@@ -1,12 +1,12 @@
 from torch import nn
 
 
-class easypureGRU_model(nn.Module):
+class pureGRU_model(nn.Module):
     r"""
-    toooooo~~ easy pureGRU......
+    pureGRU
     """
     def __init__(self, num_features, num_classes, hidden_size=512, num_layers=2):
-        super(easypureGRU_model, self).__init__()
+        super(pureGRU_model, self).__init__()
 
         self.GRU = nn.GRU(input_size=num_features,
                             hidden_size = hidden_size,

@@ -1,13 +1,13 @@
 from torch import nn
 from .layers import Mamba, MambaConfig
 
-class easypuremamba_model(nn.Module):
+class puremamba_model(nn.Module):
     r"""
-    toooooo~~ easy pureMamba......
+    pureMamba
     """
     def __init__(self, num_features, sequence_length, num_classes, 
                  mamba_layers, d_state=16, d_conv=3, expand = 2):
-        super(easypuremamba_model, self).__init__()
+        super(puremamba_model, self).__init__()
 
         config = MambaConfig(d_model=num_features, 
                              n_layers=mamba_layers,

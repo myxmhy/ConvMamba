@@ -1,22 +1,24 @@
 from torch import nn
 import numpy as np
-from .layers import MHA, MHAConfig
+from .layers import Mamba, MambaConfig
 import math
-class easyMHA_model(nn.Module):
+class mamba_model(nn.Module):
     r"""
-    toooooo~~ easy MHA......
+    Mamba
     """
-    def __init__(self, num_features, num_classes, n_layers, nhead=1,
+    def __init__(self, num_features, num_classes, mamba_layers, d_state=16, d_conv=3, expand = 2, 
                  num_conv_layer = 6, conv_outchannel=512, conv_strid_size=128):
-        super(easyMHA_model, self).__init__()
+        super(mamba_model, self).__init__()
 
         self.enc = Conv_Encoder(num_features, num_conv_layer, conv_outchannel, conv_strid_size)
 
-        config = MHAConfig(d_model=conv_outchannel, 
-                             n_layers=n_layers,
-                             nhead = nhead)
+        config = MambaConfig(d_model=conv_outchannel, 
+                             n_layers=mamba_layers,
+                             d_state = d_state,
+                             expand_factor = expand,
+                             d_conv = d_conv)
         
-        self.mamba = MHA(config)
+        self.mamba = Mamba(config)
 
         self.fc = nn.Linear(conv_outchannel, num_classes)
 

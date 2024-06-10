@@ -47,7 +47,7 @@
     "final_div_factor": 1e4
   },
   "model_config": {
-    "model": "easyGRU",
+    "model": "GRU",
     "hidden_size": 512,
     "num_layers": 1,
     "num_conv_layer": 3,

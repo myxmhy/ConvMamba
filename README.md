@@ -38,5 +38,5 @@
 ## Structure of Mamba block
 
 <p align="center" width="100%">
-<img src=".\fig\Mamba Block.svg" width="60%" />
+<img src=".\fig\Mamba block.svg" width="60%" />
 </p>

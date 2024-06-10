@@ -1,30 +1,26 @@
 from torch import nn
 import math
 import numpy as np
-
-
-class easytrans_model(nn.Module):
+class GRU_model(nn.Module):
     r"""
-    toooooo~~ easy Transformer......
+    GRU
     """
-    def __init__(self, num_features, num_classes, nhead=4, 
-                 num_encoder_layers=3, num_decoder_layers = 1, dim_feedforward = 2048,
+    def __init__(self, num_features, num_classes, hidden_size=512, num_layers=2, 
                  num_conv_layer = 6, conv_outchannel=512, conv_strid_size=128):
-        super(easytrans_model, self).__init__()
+        super(GRU_model, self).__init__()
 
         self.enc = Conv_Encoder(num_features, num_conv_layer, conv_outchannel, conv_strid_size)
 
-        self.transformer = nn.Transformer(d_model=conv_outchannel, nhead=nhead,
-                                          num_encoder_layers=num_encoder_layers, 
-                                          num_decoder_layers = num_decoder_layers,
-                                          dim_feedforward = dim_feedforward,
-                                          batch_first=True)
-        self.fc = nn.Linear(conv_outchannel, num_classes)
+        self.GRU = nn.GRU(input_size=conv_outchannel,
+                            hidden_size = hidden_size,
+                            num_layers = num_layers,
+                            batch_first=True)
+        self.fc = nn.Linear(hidden_size, num_classes)
 
     def forward(self, x):
         x = self.enc(x)
         x = x.permute(0, 2, 1)
-        x = self.transformer(x, x)
+        x,_ = self.GRU(x)
         x = x.mean(dim=1)
         x = self.fc(x)  
         return x

@@ -8,7 +8,7 @@ def default_parser():
         "per_device_train_batch_size": 24,
         "per_device_valid_batch_size": 24,
         "num_workers": 1,
-        "method": "easyTrans",
+        "method": "Trans",
         "max_epoch": 200,
         "lossfun": "CEL",
         "load_from": False,

@@ -1,23 +1,23 @@
-from .easytrans_model import easytrans_model
-from .easymamba_model import easymamba_model
-from .easyMHA_model import easyMHA_model
-from .easypuremamba_model import easypuremamba_model
-from .easyGRU_model import easyGRU_model
-from .easyLSTM_model import easyLSTM_model
-from .easypureGRU_model import easypureGRU_model
-from .easypureLSTM_model import easypureLSTM_model
-from .easypuretrans_model import easypuretrans_model
-from .easypureMHA_model import easypureMHA_model
+from .trans_model import trans_model
+from .mamba_model import mamba_model
+from .MHA_model import MHA_model
+from .puremamba_model import puremamba_model
+from .GRU_model import GRU_model
+from .LSTM_model import LSTM_model
+from .pureGRU_model import pureGRU_model
+from .pureLSTM_model import pureLSTM_model
+from .puretrans_model import puretrans_model
+from .pureMHA_model import pureMHA_model
 
 __all__ = [
-    'easytrans_model',
-    'easymamba_model',
-    'easyMHA_model',
-    'easypuremamba_model',
-    'easyGRU_model',
-    'easyLSTM_model',
-    'easypureGRU_model',
-    'easypureLSTM_model',
-    'easypuretrans_model',
-    'easypureMHA_model'
+    'trans_model',
+    'mamba_model',
+    'MHA_model',
+    'puremamba_model',
+    'GRU_model',
+    'LSTM_model',
+    'pureGRU_model',
+    'pureLSTM_model',
+    'puretrans_model',
+    'pureMHA_model'
 ]
